@@ -48,13 +48,13 @@ public:
 
     RTI1516fedTime last_time{0.0};
 
-    void timeConstrainedEnabled(const LogicalTime& theFederateTime) throw(FederateInternalError) override
+    void timeConstrainedEnabled(const LogicalTime& theFederateTime) override
     {
         is_constrained = true;
         last_time = theFederateTime;
     }
 
-    void timeRegulationEnabled(const LogicalTime& theFederateTime) throw(FederateInternalError) override
+    void timeRegulationEnabled(const LogicalTime& theFederateTime) override
     {
         is_regulator = true;
         last_time = theFederateTime;
@@ -62,13 +62,13 @@ public:
 
     void
     announceSynchronizationPoint(const std::wstring& label,
-                                 const VariableLengthData& /*theUserSuppliedTag*/) throw(FederateInternalError) override
+                                 const VariableLengthData& /*theUserSuppliedTag*/) override
     {
         wcout << "Received synchronization point <" << label << ">, auto achieve" << endl;
         ambassador->synchronizationPointAchieved(label, true);
     }
 
-    void timeAdvanceGrant(const LogicalTime& theTime) throw(FederateInternalError) override
+    void timeAdvanceGrant(const LogicalTime& theTime) override
     {
         is_granted = true;
         last_time = theTime;

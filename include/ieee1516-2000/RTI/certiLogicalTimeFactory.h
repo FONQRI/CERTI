@@ -60,14 +60,12 @@ namespace rti1516
     // Returns a LogicalTime with a value of "initial"
     virtual
     std::auto_ptr< LogicalTime >
-    makeLogicalTime()
-      throw (InternalError) = 0;
+    makeLogicalTime() = 0;
     
     // Returns a LogicalTimeInterval with a value of "zero"
     virtual 
     std::auto_ptr< LogicalTimeInterval >
-    makeLogicalTimeInterval() 
-      throw (InternalError) = 0;
+    makeLogicalTimeInterval() = 0;
   };
 }
 

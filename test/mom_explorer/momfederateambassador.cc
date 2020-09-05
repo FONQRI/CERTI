@@ -448,148 +448,144 @@ void MOMFederateAmbassador::publishAndsubscribeInteractions()
     }
 }
 
-void MOMFederateAmbassador::connectionLost(std::wstring const& faultDescription) throw(FederateInternalError)
+void MOMFederateAmbassador::connectionLost(std::wstring const& faultDescription)
 {
     std::wcout << ">>" << __func__ << " <" << faultDescription << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::reportFederationExecutions(
-    FederationExecutionInformationVector const& theFederationExecutionInformationList) throw(FederateInternalError)
+    FederationExecutionInformationVector const& theFederationExecutionInformationList)
 {
     std::wcout << ">>" << __func__ << " <" << theFederationExecutionInformationList << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::synchronizationPointRegistrationSucceeded(std::wstring const& label) throw(
-    FederateInternalError)
+void MOMFederateAmbassador::synchronizationPointRegistrationSucceeded(std::wstring const& label)
 {
     std::wcout << ">>" << __func__ << " <" << label << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::synchronizationPointRegistrationFailed(
-    std::wstring const& label, SynchronizationPointFailureReason reason) throw(FederateInternalError)
+    std::wstring const& label, SynchronizationPointFailureReason reason)
 {
     std::wcout << ">>" << __func__ << " <" << label << ", " << reason << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::announceSynchronizationPoint(
-    std::wstring const& label, VariableLengthData const& theUserSuppliedTag) throw(FederateInternalError)
+    std::wstring const& label, VariableLengthData const& theUserSuppliedTag)
 {
     std::wcout << ">>" << __func__ << " <" << label << ", " << theUserSuppliedTag << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::federationSynchronized(
-    std::wstring const& label, FederateHandleSet const& failedToSyncSet) throw(FederateInternalError)
+    std::wstring const& label, FederateHandleSet const& failedToSyncSet)
 {
     std::wcout << ">>" << __func__ << " <" << label << ", " << failedToSyncSet << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::initiateFederateSave(std::wstring const& label) throw(FederateInternalError)
+void MOMFederateAmbassador::initiateFederateSave(std::wstring const& label)
 {
     std::wcout << ">>" << __func__ << " <" << label << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::initiateFederateSave(std::wstring const& label,
-                                                 LogicalTime const& theTime) throw(FederateInternalError)
+                                                 LogicalTime const& theTime)
 {
     std::wcout << ">>" << __func__ << " <" << label << theTime.toString() << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::federationSaved() throw(FederateInternalError)
+void MOMFederateAmbassador::federationSaved()
 {
     std::wcout << ">>" << __func__ << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::federationNotSaved(SaveFailureReason theSaveFailureReason) throw(FederateInternalError)
+void MOMFederateAmbassador::federationNotSaved(SaveFailureReason theSaveFailureReason)
 {
     std::wcout << ">>" << __func__ << " <" << theSaveFailureReason << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::federationSaveStatusResponse(
-    FederateHandleSaveStatusPairVector const& theFederateStatusVector) throw(FederateInternalError)
+    FederateHandleSaveStatusPairVector const& theFederateStatusVector)
 {
     std::wcout << ">>" << __func__ << " <" << theFederateStatusVector << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::requestFederationRestoreSucceeded(std::wstring const& label) throw(FederateInternalError)
+void MOMFederateAmbassador::requestFederationRestoreSucceeded(std::wstring const& label)
 {
     std::wcout << ">>" << __func__ << " <" << label << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::requestFederationRestoreFailed(std::wstring const& label) throw(FederateInternalError)
+void MOMFederateAmbassador::requestFederationRestoreFailed(std::wstring const& label)
 {
     std::wcout << ">>" << __func__ << " <" << label << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::federationRestoreBegun() throw(FederateInternalError)
+void MOMFederateAmbassador::federationRestoreBegun()
 {
     std::wcout << ">>" << __func__ << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::initiateFederateRestore(std::wstring const& label,
                                                     std::wstring const& federateName,
-                                                    FederateHandle handle) throw(FederateInternalError)
+                                                    FederateHandle handle)
 {
     std::wcout << ">>" << __func__ << " <" << label << ", " << federateName << ", " << handle << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::federationRestored() throw(FederateInternalError)
+void MOMFederateAmbassador::federationRestored()
 {
     std::wcout << ">>" << __func__ << " <"
                << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::federationNotRestored(RestoreFailureReason theRestoreFailureReason) throw(
-    FederateInternalError)
+void MOMFederateAmbassador::federationNotRestored(RestoreFailureReason theRestoreFailureReason)
 {
     std::wcout << ">>" << __func__ << " <" << theRestoreFailureReason << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::federationRestoreStatusResponse(
-    FederateRestoreStatusVector const& theFederateRestoreStatusVector) throw(FederateInternalError)
+    FederateRestoreStatusVector const& theFederateRestoreStatusVector)
 {
     std::wcout << ">>" << __func__ << " <" << theFederateRestoreStatusVector << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::startRegistrationForObjectClass(ObjectClassHandle theClass) throw(FederateInternalError)
+void MOMFederateAmbassador::startRegistrationForObjectClass(ObjectClassHandle theClass)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectClassName(theClass) << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::stopRegistrationForObjectClass(ObjectClassHandle theClass) throw(FederateInternalError)
+void MOMFederateAmbassador::stopRegistrationForObjectClass(ObjectClassHandle theClass)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectClassName(theClass) << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::turnInteractionsOn(InteractionClassHandle theHandle) throw(FederateInternalError)
+void MOMFederateAmbassador::turnInteractionsOn(InteractionClassHandle theHandle)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getInteractionClassName(theHandle) << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::turnInteractionsOff(InteractionClassHandle theHandle) throw(FederateInternalError)
+void MOMFederateAmbassador::turnInteractionsOff(InteractionClassHandle theHandle)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getInteractionClassName(theHandle) << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::objectInstanceNameReservationSucceeded(std::wstring const& theObjectInstanceName) throw(
-    FederateInternalError)
+void MOMFederateAmbassador::objectInstanceNameReservationSucceeded(std::wstring const& theObjectInstanceName)
 {
     std::wcout << ">>" << __func__ << " <" << theObjectInstanceName << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::objectInstanceNameReservationFailed(std::wstring const& theObjectInstanceName) throw(
-    FederateInternalError)
+void MOMFederateAmbassador::objectInstanceNameReservationFailed(std::wstring const& theObjectInstanceName)
 {
     std::wcout << ">>" << __func__ << " <" << theObjectInstanceName << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::multipleObjectInstanceNameReservationSucceeded(
-    std::set<std::wstring> const& theObjectInstanceNames) throw(FederateInternalError)
+    std::set<std::wstring> const& theObjectInstanceNames)
 {
     std::wcout << ">>" << __func__ << " <" << theObjectInstanceNames << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::multipleObjectInstanceNameReservationFailed(
-    std::set<std::wstring> const& theObjectInstanceNames) throw(FederateInternalError)
+    std::set<std::wstring> const& theObjectInstanceNames)
 {
     std::wcout << ">>" << __func__ << " <" << theObjectInstanceNames << ">" << std::endl;
 }
@@ -597,7 +593,7 @@ void MOMFederateAmbassador::multipleObjectInstanceNameReservationFailed(
 void MOMFederateAmbassador::discoverObjectInstance(
     ObjectInstanceHandle theObject,
     ObjectClassHandle theObjectClass,
-    std::wstring const& theObjectInstanceName) throw(FederateInternalError)
+    std::wstring const& theObjectInstanceName)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", "
                << my_ambassador.getObjectClassName(theObjectClass) << " (" << theObjectClass << "), " << theObjectInstanceName << ">" << std::endl;
@@ -622,7 +618,7 @@ void MOMFederateAmbassador::discoverObjectInstance(
 void MOMFederateAmbassador::discoverObjectInstance(ObjectInstanceHandle theObject,
                                                    ObjectClassHandle theObjectClass,
                                                    std::wstring const& theObjectInstanceName,
-                                                   FederateHandle producingFederate) throw(FederateInternalError)
+                                                   FederateHandle producingFederate)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", "
                << my_ambassador.getObjectClassName(theObjectClass) << ", " << theObjectInstanceName << ", "
@@ -634,7 +630,7 @@ void MOMFederateAmbassador::reflectAttributeValues(ObjectInstanceHandle theObjec
                                                    VariableLengthData const& theUserSuppliedTag,
                                                    OrderType sentOrder,
                                                    TransportationType theType,
-                                                   SupplementalReflectInfo theReflectInfo) throw(FederateInternalError)
+                                                   SupplementalReflectInfo theReflectInfo)
 {
     //std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", "
     //           << show(theAttributeValues, theObject) << ", " << theUserSuppliedTag << ", " << sentOrder << ", "
@@ -676,7 +672,7 @@ void MOMFederateAmbassador::reflectAttributeValues(ObjectInstanceHandle theObjec
                                                    TransportationType theType,
                                                    LogicalTime const& theTime,
                                                    OrderType receivedOrder,
-                                                   SupplementalReflectInfo theReflectInfo) throw(FederateInternalError)
+                                                   SupplementalReflectInfo theReflectInfo)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", "
                << show(theAttributeValues, theObject) << ", " << theUserSuppliedTag << ", " << sentOrder << ", "
@@ -692,7 +688,7 @@ void MOMFederateAmbassador::reflectAttributeValues(ObjectInstanceHandle theObjec
                                                    LogicalTime const& theTime,
                                                    OrderType receivedOrder,
                                                    MessageRetractionHandle theHandle,
-                                                   SupplementalReflectInfo theReflectInfo) throw(FederateInternalError)
+                                                   SupplementalReflectInfo theReflectInfo)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", "
                << show(theAttributeValues, theObject) << ", " << theUserSuppliedTag << ", " << sentOrder << ", "
@@ -705,7 +701,7 @@ void MOMFederateAmbassador::receiveInteraction(InteractionClassHandle theInterac
                                                VariableLengthData const& theUserSuppliedTag,
                                                OrderType sentOrder,
                                                TransportationType theType,
-                                               SupplementalReceiveInfo theReceiveInfo) throw(FederateInternalError)
+                                               SupplementalReceiveInfo theReceiveInfo)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getInteractionClassName(theInteraction) << ", "
                << show(theParameterValues, theInteraction) << ", " << theUserSuppliedTag << ", " << sentOrder << ", "
@@ -719,7 +715,7 @@ void MOMFederateAmbassador::receiveInteraction(InteractionClassHandle theInterac
                                                TransportationType theType,
                                                LogicalTime const& theTime,
                                                OrderType receivedOrder,
-                                               SupplementalReceiveInfo theReceiveInfo) throw(FederateInternalError)
+                                               SupplementalReceiveInfo theReceiveInfo)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getInteractionClassName(theInteraction) << ", "
                << show(theParameterValues, theInteraction) << ", " << theUserSuppliedTag << ", " << sentOrder << ", "
@@ -735,7 +731,7 @@ void MOMFederateAmbassador::receiveInteraction(InteractionClassHandle theInterac
                                                LogicalTime const& theTime,
                                                OrderType receivedOrder,
                                                MessageRetractionHandle theHandle,
-                                               SupplementalReceiveInfo theReceiveInfo) throw(FederateInternalError)
+                                               SupplementalReceiveInfo theReceiveInfo)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getInteractionClassName(theInteraction) << ", "
                << show(theParameterValues, theInteraction) << ", " << theUserSuppliedTag << ", " << sentOrder << ", "
@@ -746,7 +742,7 @@ void MOMFederateAmbassador::receiveInteraction(InteractionClassHandle theInterac
 void MOMFederateAmbassador::removeObjectInstance(ObjectInstanceHandle theObject,
                                                  VariableLengthData const& theUserSuppliedTag,
                                                  OrderType sentOrder,
-                                                 SupplementalRemoveInfo theRemoveInfo) throw(FederateInternalError)
+                                                 SupplementalRemoveInfo theRemoveInfo)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", "
                << theUserSuppliedTag << ", " << sentOrder << ", " << theRemoveInfo << ">" << std::endl;
@@ -766,7 +762,7 @@ void MOMFederateAmbassador::removeObjectInstance(ObjectInstanceHandle theObject,
                                                  OrderType sentOrder,
                                                  LogicalTime const& theTime,
                                                  OrderType receivedOrder,
-                                                 SupplementalRemoveInfo theRemoveInfo) throw(FederateInternalError)
+                                                 SupplementalRemoveInfo theRemoveInfo)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", "
                << theUserSuppliedTag << ", " << sentOrder << ", " << theTime.toString() << ", " << receivedOrder << ", "
@@ -779,7 +775,7 @@ void MOMFederateAmbassador::removeObjectInstance(ObjectInstanceHandle theObject,
                                                  LogicalTime const& theTime,
                                                  OrderType receivedOrder,
                                                  MessageRetractionHandle theHandle,
-                                                 SupplementalRemoveInfo theRemoveInfo) throw(FederateInternalError)
+                                                 SupplementalRemoveInfo theRemoveInfo)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", "
                << theUserSuppliedTag << ", " << sentOrder << ", " << theTime.toString() << ", " << receivedOrder << ", "
@@ -787,14 +783,14 @@ void MOMFederateAmbassador::removeObjectInstance(ObjectInstanceHandle theObject,
 }
 
 void MOMFederateAmbassador::attributesInScope(ObjectInstanceHandle theObject,
-                                              AttributeHandleSet const& theAttributes) throw(FederateInternalError)
+                                              AttributeHandleSet const& theAttributes)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", " << theAttributes
                << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::attributesOutOfScope(ObjectInstanceHandle theObject,
-                                                 AttributeHandleSet const& theAttributes) throw(FederateInternalError)
+                                                 AttributeHandleSet const& theAttributes)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", " << theAttributes
                << ">" << std::endl;
@@ -803,14 +799,14 @@ void MOMFederateAmbassador::attributesOutOfScope(ObjectInstanceHandle theObject,
 void MOMFederateAmbassador::provideAttributeValueUpdate(
     ObjectInstanceHandle theObject,
     AttributeHandleSet const& theAttributes,
-    VariableLengthData const& theUserSuppliedTag) throw(FederateInternalError)
+    VariableLengthData const& theUserSuppliedTag)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", " << theAttributes
                << ", " << theUserSuppliedTag << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::turnUpdatesOnForObjectInstance(
-    ObjectInstanceHandle theObject, AttributeHandleSet const& theAttributes) throw(FederateInternalError)
+    ObjectInstanceHandle theObject, AttributeHandleSet const& theAttributes)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", " << theAttributes
                << ">" << std::endl;
@@ -819,14 +815,14 @@ void MOMFederateAmbassador::turnUpdatesOnForObjectInstance(
 void MOMFederateAmbassador::turnUpdatesOnForObjectInstance(
     ObjectInstanceHandle theObject,
     AttributeHandleSet const& theAttributes,
-    std::wstring const& updateRateDesignator) throw(FederateInternalError)
+    std::wstring const& updateRateDesignator)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", " << theAttributes
                << ", " << updateRateDesignator << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::turnUpdatesOffForObjectInstance(
-    ObjectInstanceHandle theObject, AttributeHandleSet const& theAttributes) throw(FederateInternalError)
+    ObjectInstanceHandle theObject, AttributeHandleSet const& theAttributes)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", " << theAttributes
                << ">" << std::endl;
@@ -835,7 +831,7 @@ void MOMFederateAmbassador::turnUpdatesOffForObjectInstance(
 void MOMFederateAmbassador::confirmAttributeTransportationTypeChange(
     ObjectInstanceHandle theObject,
     AttributeHandleSet theAttributes,
-    TransportationType theTransportation) throw(FederateInternalError)
+    TransportationType theTransportation)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", " << theAttributes
                << ", " << theTransportation << ">" << std::endl;
@@ -844,14 +840,14 @@ void MOMFederateAmbassador::confirmAttributeTransportationTypeChange(
 void MOMFederateAmbassador::reportAttributeTransportationType(
     ObjectInstanceHandle theObject,
     AttributeHandle theAttribute,
-    TransportationType theTransportation) throw(FederateInternalError)
+    TransportationType theTransportation)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", " << theAttribute
                << ", " << theTransportation << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::confirmInteractionTransportationTypeChange(
-    InteractionClassHandle theInteraction, TransportationType theTransportation) throw(FederateInternalError)
+    InteractionClassHandle theInteraction, TransportationType theTransportation)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getInteractionClassName(theInteraction) << ", "
                << theTransportation << ">" << std::endl;
@@ -860,7 +856,7 @@ void MOMFederateAmbassador::confirmInteractionTransportationTypeChange(
 void MOMFederateAmbassador::reportInteractionTransportationType(
     FederateHandle federateHandle,
     InteractionClassHandle theInteraction,
-    TransportationType theTransportation) throw(FederateInternalError)
+    TransportationType theTransportation)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getFederateName(federateHandle) << ", "
                << my_ambassador.getInteractionClassName(theInteraction) << ", " << theTransportation << ">"
@@ -870,14 +866,14 @@ void MOMFederateAmbassador::reportInteractionTransportationType(
 void MOMFederateAmbassador::requestAttributeOwnershipAssumption(
     ObjectInstanceHandle theObject,
     AttributeHandleSet const& offeredAttributes,
-    VariableLengthData const& theUserSuppliedTag) throw(FederateInternalError)
+    VariableLengthData const& theUserSuppliedTag)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", "
                << offeredAttributes << ", " << theUserSuppliedTag << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::requestDivestitureConfirmation(
-    ObjectInstanceHandle theObject, AttributeHandleSet const& releasedAttributes) throw(FederateInternalError)
+    ObjectInstanceHandle theObject, AttributeHandleSet const& releasedAttributes)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", "
                << releasedAttributes << ">" << std::endl;
@@ -886,14 +882,14 @@ void MOMFederateAmbassador::requestDivestitureConfirmation(
 void MOMFederateAmbassador::attributeOwnershipAcquisitionNotification(
     ObjectInstanceHandle theObject,
     AttributeHandleSet const& securedAttributes,
-    VariableLengthData const& theUserSuppliedTag) throw(FederateInternalError)
+    VariableLengthData const& theUserSuppliedTag)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", "
                << securedAttributes << ", " << theUserSuppliedTag << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::attributeOwnershipUnavailable(
-    ObjectInstanceHandle theObject, AttributeHandleSet const& theAttributes) throw(FederateInternalError)
+    ObjectInstanceHandle theObject, AttributeHandleSet const& theAttributes)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", " << theAttributes
                << ">" << std::endl;
@@ -902,14 +898,14 @@ void MOMFederateAmbassador::attributeOwnershipUnavailable(
 void MOMFederateAmbassador::requestAttributeOwnershipRelease(
     ObjectInstanceHandle theObject,
     AttributeHandleSet const& candidateAttributes,
-    VariableLengthData const& theUserSuppliedTag) throw(FederateInternalError)
+    VariableLengthData const& theUserSuppliedTag)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", "
                << candidateAttributes << ", " << theUserSuppliedTag << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::confirmAttributeOwnershipAcquisitionCancellation(
-    ObjectInstanceHandle theObject, AttributeHandleSet const& theAttributes) throw(FederateInternalError)
+    ObjectInstanceHandle theObject, AttributeHandleSet const& theAttributes)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", " << theAttributes
                << ">" << std::endl;
@@ -917,42 +913,42 @@ void MOMFederateAmbassador::confirmAttributeOwnershipAcquisitionCancellation(
 
 void MOMFederateAmbassador::informAttributeOwnership(ObjectInstanceHandle theObject,
                                                      AttributeHandle theAttribute,
-                                                     FederateHandle theOwner) throw(FederateInternalError)
+                                                     FederateHandle theOwner)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", " << theAttribute
                << ", " << theOwner << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::attributeIsNotOwned(ObjectInstanceHandle theObject,
-                                                AttributeHandle theAttribute) throw(FederateInternalError)
+                                                AttributeHandle theAttribute)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", " << theAttribute
                << ">" << std::endl;
 }
 
 void MOMFederateAmbassador::attributeIsOwnedByRTI(ObjectInstanceHandle theObject,
-                                                  AttributeHandle theAttribute) throw(FederateInternalError)
+                                                  AttributeHandle theAttribute)
 {
     std::wcout << ">>" << __func__ << " <" << my_ambassador.getObjectInstanceName(theObject) << ", " << theAttribute
                << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::timeRegulationEnabled(LogicalTime const& theFederateTime) throw(FederateInternalError)
+void MOMFederateAmbassador::timeRegulationEnabled(LogicalTime const& theFederateTime)
 {
     std::wcout << ">>" << __func__ << " <" << theFederateTime.toString() << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::timeConstrainedEnabled(LogicalTime const& theFederateTime) throw(FederateInternalError)
+void MOMFederateAmbassador::timeConstrainedEnabled(LogicalTime const& theFederateTime)
 {
     std::wcout << ">>" << __func__ << " <" << theFederateTime.toString() << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::timeAdvanceGrant(LogicalTime const& theTime) throw(FederateInternalError)
+void MOMFederateAmbassador::timeAdvanceGrant(LogicalTime const& theTime)
 {
     std::wcout << ">>" << __func__ << " <" << theTime.toString() << ">" << std::endl;
 }
 
-void MOMFederateAmbassador::requestRetraction(MessageRetractionHandle theHandle) throw(FederateInternalError)
+void MOMFederateAmbassador::requestRetraction(MessageRetractionHandle theHandle)
 {
     std::wcout << ">>" << __func__ << " <" << theHandle << ">" << std::endl;
 }

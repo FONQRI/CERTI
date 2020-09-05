@@ -71,35 +71,25 @@ public:
 
     virtual RTI::ULong size() const;
 
-    virtual RTI::Handle getHandle(RTI::ULong) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual RTI::Handle getHandle(RTI::ULong) const;
 
-    virtual RTI::ULong getValueLength(RTI::ULong) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual RTI::ULong getValueLength(RTI::ULong) const;
 
-    virtual void getValue(RTI::ULong, char *, RTI::ULong &) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual void getValue(RTI::ULong, char *, RTI::ULong &) const;
 
-    virtual char *getValuePointer(RTI::ULong, RTI::ULong &) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual char *getValuePointer(RTI::ULong, RTI::ULong &) const;
 
-    virtual RTI::TransportType getTransportType(RTI::ULong) const
-        throw (RTI::InvalidHandleValuePairSetContext);
+    virtual RTI::TransportType getTransportType(RTI::ULong) const;
 
-    virtual RTI::OrderType getOrderType(RTI::ULong) const
-        throw (RTI::ArrayIndexOutOfBounds, RTI::InvalidHandleValuePairSetContext);
+    virtual RTI::OrderType getOrderType(RTI::ULong) const;
 
-    virtual RTI::Region *getRegion(RTI::ULong) const
-        throw (RTI::ArrayIndexOutOfBounds, RTI::InvalidHandleValuePairSetContext);
+    virtual RTI::Region *getRegion(RTI::ULong) const;
 
-    virtual void add(RTI::Handle, const char *,RTI:: ULong)
-        throw (RTI::ValueLengthExceeded, RTI::ValueCountExceeded);
+    virtual void add(RTI::Handle, const char *,RTI:: ULong);
 
-    virtual void remove(RTI::Handle h)
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual void remove(RTI::Handle h);
 
-    virtual void moveFrom(const AttributeHandleValuePairSet &, RTI::ULong &)
-        throw (RTI::ValueCountExceeded, RTI::ArrayIndexOutOfBounds);
+    virtual void moveFrom(const AttributeHandleValuePairSet &, RTI::ULong &);
 
     virtual void empty();
 
@@ -126,14 +116,11 @@ public:
 
     virtual RTI::ULong size() const;
 
-    virtual RTI::AttributeHandle getHandle(RTI::ULong) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual RTI::AttributeHandle getHandle(RTI::ULong) const;
 
-    virtual void add(RTI::AttributeHandle)
-        throw (RTI::ArrayIndexOutOfBounds, RTI::AttributeNotDefined);
+    virtual void add(RTI::AttributeHandle);
 
-    virtual void remove(RTI::AttributeHandle)
-        throw (RTI::AttributeNotDefined);
+    virtual void remove(RTI::AttributeHandle);
 
     virtual void empty();
 
@@ -154,14 +141,11 @@ public:
 
     virtual RTI::ULong size() const;
 
-    virtual RTI::FederateHandle getHandle(RTI::ULong) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual RTI::FederateHandle getHandle(RTI::ULong) const;
 
-    virtual void add(RTI::FederateHandle)
-        throw (RTI::ValueCountExceeded);
+    virtual void add(RTI::FederateHandle);
 
-    virtual void remove(RTI::FederateHandle)
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual void remove(RTI::FederateHandle);
 
     virtual void empty();
 
@@ -182,35 +166,25 @@ public:
 
     virtual RTI::ULong size() const;
 
-    virtual RTI::Handle getHandle(RTI::ULong) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual RTI::Handle getHandle(RTI::ULong) const;
 
-    virtual RTI::ULong getValueLength(RTI::ULong) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual RTI::ULong getValueLength(RTI::ULong) const;
 
-    virtual void getValue(RTI::ULong, char *, RTI::ULong &) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual void getValue(RTI::ULong, char *, RTI::ULong &) const;
 
-    virtual char *getValuePointer(RTI::ULong, RTI::ULong &) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual char *getValuePointer(RTI::ULong, RTI::ULong &) const;
 
-    virtual RTI::TransportType getTransportType() const
-        throw (RTI::InvalidHandleValuePairSetContext);
+    virtual RTI::TransportType getTransportType() const;
 
-    virtual RTI::OrderType getOrderType() const
-        throw (RTI::InvalidHandleValuePairSetContext);
+    virtual RTI::OrderType getOrderType() const;
 
-    virtual RTI::Region *getRegion() const
-        throw (RTI::InvalidHandleValuePairSetContext);
+    virtual RTI::Region *getRegion() const;
 
-    virtual void add(RTI::Handle, const char *, RTI::ULong)
-        throw (RTI::ValueLengthExceeded, RTI::ValueCountExceeded);
+    virtual void add(RTI::Handle, const char *, RTI::ULong);
 
-    virtual void remove(RTI::Handle)
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual void remove(RTI::Handle);
 
-    virtual void moveFrom(const ParameterHandleValuePairSet &, RTI::ULong &)
-        throw (RTI::ValueCountExceeded, RTI::ArrayIndexOutOfBounds);
+    virtual void moveFrom(const ParameterHandleValuePairSet &, RTI::ULong &);
 
     virtual void empty();
 
@@ -233,29 +207,23 @@ public:
     RegionImp(RegionHandle, RTI::SpaceHandle, const std::vector<Extent>&);
     virtual ~RegionImp();
 
-    virtual RTI::ULong getRangeLowerBound(RTI::ExtentIndex, RTI::DimensionHandle) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual RTI::ULong getRangeLowerBound(RTI::ExtentIndex, RTI::DimensionHandle) const;
 
-    virtual RTI::ULong getRangeUpperBound(RTI::ExtentIndex, RTI::DimensionHandle) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual RTI::ULong getRangeUpperBound(RTI::ExtentIndex, RTI::DimensionHandle) const;
 
-    virtual void setRangeLowerBound(RTI::ExtentIndex, RTI::DimensionHandle, RTI::ULong)
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual void setRangeLowerBound(RTI::ExtentIndex, RTI::DimensionHandle, RTI::ULong);
 
-    virtual void setRangeUpperBound(RTI::ExtentIndex, RTI::DimensionHandle, RTI::ULong)
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual void setRangeUpperBound(RTI::ExtentIndex, RTI::DimensionHandle, RTI::ULong);
 
     virtual RTI::SpaceHandle getSpaceHandle() const
-        throw ();
+        noexcept;
 
     virtual RTI::ULong getNumberOfExtents() const
-        throw ();
+        noexcept;
 
-    virtual RTI::ULong getRangeLowerBoundNotificationLimit(RTI::ExtentIndex, RTI::DimensionHandle) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual RTI::ULong getRangeLowerBoundNotificationLimit(RTI::ExtentIndex, RTI::DimensionHandle) const;
 
-    virtual RTI::ULong getRangeUpperBoundNotificationLimit(RTI::ExtentIndex, RTI::DimensionHandle) const
-        throw (RTI::ArrayIndexOutOfBounds);
+    virtual RTI::ULong getRangeUpperBoundNotificationLimit(RTI::ExtentIndex, RTI::DimensionHandle) const;
 
     RegionHandle getHandle() const;
 

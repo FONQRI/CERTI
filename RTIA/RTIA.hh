@@ -66,7 +66,7 @@ public:
     void displayStatistics();
 
 private:
-    void saveAndRestoreStatus(Message::Type type) throw(SaveInProgress, RestoreInProgress);
+    void saveAndRestoreStatus(Message::Type type);
 
     /// Process one message from RTIG (i.e. a NetworkMessage).
     void processNetworkMessage(NetworkMessage* request);

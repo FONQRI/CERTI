@@ -23,10 +23,10 @@
 #include <RTI/FederateAmbassador.h>
 #include <RTI/NullFederateAmbassador.h>
 
-rti1516e::FederateAmbassador::FederateAmbassador() throw (FederateInternalError)
+rti1516e::FederateAmbassador::FederateAmbassador()
 {
 }
 
-rti1516e::FederateAmbassador::~FederateAmbassador() throw()
+rti1516e::FederateAmbassador::~FederateAmbassador() noexcept
 {
 }

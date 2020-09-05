@@ -73,7 +73,7 @@ public:
 
     /* Alternate encode for directly filling a buffer         */
     virtual unsigned long encodedLength() const;
-    virtual unsigned long encode(void* buffer, unsigned long bufferSize) const throw(CouldNotEncode);
+    virtual unsigned long encode(void* buffer, unsigned long bufferSize) const;
 
     virtual std::wstring toString() const;
 
@@ -151,7 +151,7 @@ public:
 
     /* Alternate encode for directly filling a buffer         */
     virtual unsigned long encodedLength() const;
-    virtual unsigned long encode(void* buffer, unsigned long bufferSize) const throw(CouldNotEncode);
+    virtual unsigned long encode(void* buffer, unsigned long bufferSize) const;
 
     ULong getSerialNum() const
     {

@@ -14,63 +14,51 @@ namespace rti1516
   class RTI_EXPORT NullFederateAmbassador : public FederateAmbassador
   {
   public:
-    NullFederateAmbassador()
-       throw (FederateInternalError) {}
+    NullFederateAmbassador() {}
 
     virtual
     ~NullFederateAmbassador()
-    throw () {}
+    noexcept {}
 
     // 4.7
     virtual
     void
-    synchronizationPointRegistrationSucceeded(std::wstring const & /*label*/)
-      throw (FederateInternalError) {}
+    synchronizationPointRegistrationSucceeded(std::wstring const & /*label*/) {}
 
     virtual
     void
     synchronizationPointRegistrationFailed(std::wstring const & /*label*/,
-                                           SynchronizationFailureReason /*reason*/)
-      throw (FederateInternalError) {}
+                                           SynchronizationFailureReason /*reason*/) {}
 
     // 4.8
     virtual
     void
     announceSynchronizationPoint(std::wstring  const & /*label*/,
-                                 VariableLengthData const & /*theUserSuppliedTag*/)
-      throw (FederateInternalError) {}
+                                 VariableLengthData const & /*theUserSuppliedTag*/) {}
 
     // 4.10
     virtual
     void
-    federationSynchronized(std::wstring const & /*label*/)
-      throw (FederateInternalError) {}
+    federationSynchronized(std::wstring const & /*label*/) {}
 
     // 4.12
     virtual
     void
-    initiateFederateSave(std::wstring const & /*label*/)
-      throw (UnableToPerformSave,
-             FederateInternalError) {}
+    initiateFederateSave(std::wstring const & /*label*/) {}
 
     virtual
     void
     initiateFederateSave(std::wstring const & /*label*/,
-                         LogicalTime const & /*theTime*/)
-      throw (UnableToPerformSave,
-             InvalidLogicalTime,
-             FederateInternalError) {}
+                         LogicalTime const & /*theTime*/) {}
 
     // 4.15
     virtual
     void
-    federationSaved()
-      throw (FederateInternalError) {}
+    federationSaved() {}
 
     virtual
     void
-    federationNotSaved(SaveFailureReason /*theSaveFailureReason*/)
-      throw (FederateInternalError) {}
+    federationNotSaved(SaveFailureReason /*theSaveFailureReason*/) {}
 
 
     // 4.17
@@ -78,53 +66,43 @@ namespace rti1516
     void
     federationSaveStatusResponse(
       FederateHandleSaveStatusPairVector const & 
-      /*theFederateStatusVector*/)
-      throw (FederateInternalError) {}
+      /*theFederateStatusVector*/) {}
 
     // 4.19
     virtual
     void
-    requestFederationRestoreSucceeded(std::wstring const & /*label*/)
-      throw (FederateInternalError) {}
+    requestFederationRestoreSucceeded(std::wstring const & /*label*/) {}
 
     virtual
     void
-    requestFederationRestoreFailed(std::wstring const & /*label*/)
-      throw (FederateInternalError) {}
+    requestFederationRestoreFailed(std::wstring const & /*label*/) {}
 
     // 4.20
     virtual
     void
-    federationRestoreBegun()
-      throw (FederateInternalError) {}
+    federationRestoreBegun() {}
 
     // 4.21
     virtual
     void
     initiateFederateRestore(std::wstring const & /*label*/,
-                            FederateHandle /*handle*/)
-      throw (SpecifiedSaveLabelDoesNotExist,
-             CouldNotInitiateRestore,
-             FederateInternalError) {}
+                            FederateHandle /*handle*/) {}
 
     // 4.23
     virtual
     void
-    federationRestored()
-      throw (FederateInternalError) {}
+    federationRestored() {}
 
     virtual
     void
-    federationNotRestored(RestoreFailureReason /*theRestoreFailureReason*/)
-      throw (FederateInternalError) {}
+    federationNotRestored(RestoreFailureReason /*theRestoreFailureReason*/) {}
 
     // 4.25
     virtual
     void
     federationRestoreStatusResponse(
       FederateHandleRestoreStatusPairVector  const & 
-      /*theFederateStatusVector*/)
-      throw (FederateInternalError) {}
+      /*theFederateStatusVector*/) {}
 
     /////////////////////////////////////
     // Declaration Management Services //
@@ -133,30 +111,22 @@ namespace rti1516
     // 5.10
     virtual
     void
-    startRegistrationForObjectClass(ObjectClassHandle /*theClass*/)
-      throw (ObjectClassNotPublished,
-             FederateInternalError) {}
+    startRegistrationForObjectClass(ObjectClassHandle /*theClass*/) {}
 
     // 5.11
     virtual
     void
-    stopRegistrationForObjectClass(ObjectClassHandle /*theClass*/)
-      throw (ObjectClassNotPublished,
-             FederateInternalError) {}
+    stopRegistrationForObjectClass(ObjectClassHandle /*theClass*/) {}
 
     // 5.12
     virtual
     void
-    turnInteractionsOn(InteractionClassHandle /*theHandle*/)
-      throw (InteractionClassNotPublished,
-             FederateInternalError) {}
+    turnInteractionsOn(InteractionClassHandle /*theHandle*/) {}
 
     // 5.13
     virtual
     void
-    turnInteractionsOff(InteractionClassHandle /*theHandle*/)
-      throw (InteractionClassNotPublished,
-             FederateInternalError) {}
+    turnInteractionsOff(InteractionClassHandle /*theHandle*/) {}
 
     ////////////////////////////////
     // Object Management Services //
@@ -166,16 +136,12 @@ namespace rti1516
     virtual
     void
     objectInstanceNameReservationSucceeded(std::wstring const &
-                                           /*theObjectInstanceName*/)
-      throw (UnknownName,
-             FederateInternalError) {}
+                                           /*theObjectInstanceName*/) {}
 
     virtual
     void
     objectInstanceNameReservationFailed(std::wstring const &
-                                        /*theObjectInstanceName*/)
-      throw (UnknownName,
-             FederateInternalError) {}
+                                        /*theObjectInstanceName*/) {}
 
   
     // 6.5
@@ -183,10 +149,7 @@ namespace rti1516
     void
     discoverObjectInstance(ObjectInstanceHandle /*theObject*/,
                            ObjectClassHandle /*theObjectClass*/,
-                           std::wstring const & /*theObjectInstanceName*/)
-      throw (CouldNotDiscover,
-             ObjectClassNotKnown,
-             FederateInternalError) {}
+                           std::wstring const & /*theObjectInstanceName*/) {}
 
     // 6.7
     virtual
@@ -196,11 +159,7 @@ namespace rti1516
      AttributeHandleValueMap const & /*theAttributeValues*/,
      VariableLengthData const & /*theUserSuppliedTag*/,
      OrderType /*sentOrder*/,
-     TransportationType /*theType*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeNotSubscribed,
-             FederateInternalError) {}
+     TransportationType /*theType*/) {}
 
     virtual
     void
@@ -210,11 +169,7 @@ namespace rti1516
      VariableLengthData const & /*theUserSuppliedTag*/,
      OrderType /*sentOrder*/,
      TransportationType /*theType*/,
-     RegionHandleSet const & /*theSentRegionHandleSet*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeNotSubscribed,
-             FederateInternalError) {}
+     RegionHandleSet const & /*theSentRegionHandleSet*/) {}
 
     virtual
     void
@@ -225,11 +180,7 @@ namespace rti1516
      OrderType /*sentOrder*/,
      TransportationType /*theType*/,
      LogicalTime const & /*theTime*/,
-     OrderType /*receivedOrder*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeNotSubscribed,
-             FederateInternalError) {}
+     OrderType /*receivedOrder*/) {}
   
     virtual
     void
@@ -241,11 +192,7 @@ namespace rti1516
      TransportationType /*theType*/,
      LogicalTime const & /*theTime*/,
      OrderType /*receivedOrder*/,
-     RegionHandleSet const & /*theSentRegionHandleSet*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeNotSubscribed,
-             FederateInternalError) {}
+     RegionHandleSet const & /*theSentRegionHandleSet*/) {}
   
     virtual
     void
@@ -257,12 +204,7 @@ namespace rti1516
      TransportationType /*theType*/,
      LogicalTime const & /*theTime*/,
      OrderType /*receivedOrder*/,
-     MessageRetractionHandle /*theHandle*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeNotSubscribed,
-             InvalidLogicalTime,
-             FederateInternalError) {}
+     MessageRetractionHandle /*theHandle*/) {}
 
     virtual
     void
@@ -275,12 +217,7 @@ namespace rti1516
      LogicalTime const & /*theTime*/,
      OrderType /*receivedOrder*/,
      MessageRetractionHandle /*theHandle*/,
-     RegionHandleSet const & /*theSentRegionHandleSet*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeNotSubscribed,
-             InvalidLogicalTime,
-             FederateInternalError) {}
+     RegionHandleSet const & /*theSentRegionHandleSet*/) {}
 
     // 6.9
     virtual
@@ -290,11 +227,7 @@ namespace rti1516
      ParameterHandleValueMap const & /*theParameterValues*/,
      VariableLengthData const & /*theUserSuppliedTag*/,
      OrderType /*sentOrder*/,
-     TransportationType /*theType*/)
-      throw (InteractionClassNotRecognized,
-             InteractionParameterNotRecognized,
-             InteractionClassNotSubscribed,
-             FederateInternalError) {}
+     TransportationType /*theType*/) {}
 
     virtual
     void
@@ -304,11 +237,7 @@ namespace rti1516
      VariableLengthData const & /*theUserSuppliedTag*/,
      OrderType /*sentOrder*/,
      TransportationType /*theType*/,
-     RegionHandleSet const & /*theSentRegionHandleSet*/)
-      throw (InteractionClassNotRecognized,
-             InteractionParameterNotRecognized,
-             InteractionClassNotSubscribed,
-             FederateInternalError) {}
+     RegionHandleSet const & /*theSentRegionHandleSet*/) {}
 
     virtual
     void
@@ -319,11 +248,7 @@ namespace rti1516
      OrderType /*sentOrder*/,
      TransportationType /*theType*/,
      LogicalTime const & /*theTime*/,
-     OrderType /*receivedOrder*/)
-      throw (InteractionClassNotRecognized,
-             InteractionParameterNotRecognized,
-             InteractionClassNotSubscribed,
-             FederateInternalError) {}
+     OrderType /*receivedOrder*/) {}
 
     virtual
     void
@@ -335,11 +260,7 @@ namespace rti1516
      TransportationType /*theType*/,
      LogicalTime const & /*theTime*/,
      OrderType /*receivedOrder*/,
-     RegionHandleSet const & /*theSentRegionHandleSet*/)
-      throw (InteractionClassNotRecognized,
-             InteractionParameterNotRecognized,
-             InteractionClassNotSubscribed,
-             FederateInternalError) {}
+     RegionHandleSet const & /*theSentRegionHandleSet*/) {}
 
     virtual
     void
@@ -351,12 +272,7 @@ namespace rti1516
      TransportationType /*theType*/,
      LogicalTime const & /*theTime*/,
      OrderType /*receivedOrder*/,
-     MessageRetractionHandle /*theHandle*/)
-      throw (InteractionClassNotRecognized,
-             InteractionParameterNotRecognized,
-             InteractionClassNotSubscribed,
-             InvalidLogicalTime,
-             FederateInternalError) {}
+     MessageRetractionHandle /*theHandle*/) {}
 
     virtual
     void
@@ -369,21 +285,14 @@ namespace rti1516
      LogicalTime const & /*theTime*/,
      OrderType /*receivedOrder*/,
      MessageRetractionHandle /*theHandle*/,
-     RegionHandleSet const & /*theSentRegionHandleSet*/)
-      throw (InteractionClassNotRecognized,
-             InteractionParameterNotRecognized,
-             InteractionClassNotSubscribed,
-             InvalidLogicalTime,
-             FederateInternalError) {}
+     RegionHandleSet const & /*theSentRegionHandleSet*/) {}
 
     // 6.11
     virtual
     void
     removeObjectInstance(ObjectInstanceHandle /*theObject*/,
                          VariableLengthData const & /*theUserSuppliedTag*/,
-                         OrderType /*sentOrder*/)
-      throw (ObjectInstanceNotKnown,
-             FederateInternalError) {}
+                         OrderType /*sentOrder*/) {}
 
     virtual
     void
@@ -391,9 +300,7 @@ namespace rti1516
                          VariableLengthData const & /*theUserSuppliedTag*/,
                          OrderType /*sentOrder*/,
                          LogicalTime const & /*theTime*/,
-                         OrderType /*receivedOrder*/)
-      throw (ObjectInstanceNotKnown,
-             FederateInternalError) {}
+                         OrderType /*receivedOrder*/) {}
 
     virtual
     void
@@ -402,32 +309,21 @@ namespace rti1516
                          OrderType /*sentOrder*/,
                          LogicalTime const & /*theTime*/,
                          OrderType /*receivedOrder*/,
-                         MessageRetractionHandle /*theHandle*/)
-      throw (ObjectInstanceNotKnown,
-             InvalidLogicalTime,
-             FederateInternalError) {}
+                         MessageRetractionHandle /*theHandle*/) {}
 
     // 6.15
     virtual
     void
     attributesInScope
     (ObjectInstanceHandle /*theObject*/,
-      AttributeHandleSet const & /*theAttributes*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeNotSubscribed,
-             FederateInternalError) {}
+      AttributeHandleSet const & /*theAttributes*/) {}
 
     // 6.16
     virtual
     void
     attributesOutOfScope
     (ObjectInstanceHandle /*theObject*/,
-      AttributeHandleSet const & /*theAttributes*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeNotSubscribed,
-             FederateInternalError) {}
+      AttributeHandleSet const & /*theAttributes*/) {}
 
     // 6.18
     virtual
@@ -435,33 +331,21 @@ namespace rti1516
     provideAttributeValueUpdate
     (ObjectInstanceHandle /*theObject*/,
      AttributeHandleSet const & /*theAttributes*/,
-     VariableLengthData const & /*theUserSuppliedTag*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeNotOwned,
-             FederateInternalError) {}
+     VariableLengthData const & /*theUserSuppliedTag*/) {}
 
     // 6.19
     virtual
     void
     turnUpdatesOnForObjectInstance
     (ObjectInstanceHandle /*theObject*/,
-      AttributeHandleSet const & /*theAttributes*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeNotOwned,
-             FederateInternalError) {}
+      AttributeHandleSet const & /*theAttributes*/) {}
 
     // 6.20
     virtual
     void
     turnUpdatesOffForObjectInstance
     (ObjectInstanceHandle /*theObject*/,
-      AttributeHandleSet const & /*theAttributes*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeNotOwned,
-             FederateInternalError) {}
+      AttributeHandleSet const & /*theAttributes*/) {}
 
     ///////////////////////////////////
     // Ownership Management Services //
@@ -473,24 +357,14 @@ namespace rti1516
     requestAttributeOwnershipAssumption
     (ObjectInstanceHandle /*theObject*/,
      AttributeHandleSet const & /*offeredAttributes*/,
-     VariableLengthData const & /*theUserSuppliedTag*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeAlreadyOwned,
-             AttributeNotPublished,
-             FederateInternalError) {}
+     VariableLengthData const & /*theUserSuppliedTag*/) {}
 
     // 7.5
     virtual
     void
     requestDivestitureConfirmation
     (ObjectInstanceHandle /*theObject*/,
-      AttributeHandleSet const & /*releasedAttributes*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeNotOwned,
-             AttributeDivestitureWasNotRequested,
-             FederateInternalError) {}
+      AttributeHandleSet const & /*releasedAttributes*/) {}
 
     // 7.7
     virtual
@@ -498,25 +372,14 @@ namespace rti1516
     attributeOwnershipAcquisitionNotification
     (ObjectInstanceHandle /*theObject*/,
      AttributeHandleSet const & /*securedAttributes*/,
-     VariableLengthData const & /*theUserSuppliedTag*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeAcquisitionWasNotRequested,
-             AttributeAlreadyOwned,
-             AttributeNotPublished,
-             FederateInternalError) {}
+     VariableLengthData const & /*theUserSuppliedTag*/) {}
 
     // 7.10
     virtual
     void
     attributeOwnershipUnavailable
     (ObjectInstanceHandle /*theObject*/,
-      AttributeHandleSet const & /*theAttributes*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeAlreadyOwned,
-             AttributeAcquisitionWasNotRequested,
-             FederateInternalError) {}
+      AttributeHandleSet const & /*theAttributes*/) {}
 
     // 7.11
     virtual
@@ -524,49 +387,31 @@ namespace rti1516
     requestAttributeOwnershipRelease
     (ObjectInstanceHandle /*theObject*/,
      AttributeHandleSet const & /*candidateAttributes*/,
-     VariableLengthData const & /*theUserSuppliedTag*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeNotOwned,
-             FederateInternalError) {}
+     VariableLengthData const & /*theUserSuppliedTag*/) {}
 
     // 7.15
     virtual
     void
     confirmAttributeOwnershipAcquisitionCancellation
     (ObjectInstanceHandle /*theObject*/,
-      AttributeHandleSet const & /*theAttributes*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             AttributeAlreadyOwned,
-             AttributeAcquisitionWasNotCanceled,
-             FederateInternalError) {}
+      AttributeHandleSet const & /*theAttributes*/) {}
 
     // 7.17
     virtual
     void
     informAttributeOwnership(ObjectInstanceHandle /*theObject*/,
                              AttributeHandle /*theAttribute*/,
-                             FederateHandle /*theOwner*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             FederateInternalError) {}
+                             FederateHandle /*theOwner*/) {}
 
     virtual
     void
     attributeIsNotOwned(ObjectInstanceHandle /*theObject*/,
-                        AttributeHandle /*theAttribute*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             FederateInternalError) {}
+                        AttributeHandle /*theAttribute*/) {}
 
     virtual
     void
     attributeIsOwnedByRTI(ObjectInstanceHandle /*theObject*/,
-                          AttributeHandle /*theAttribute*/)
-      throw (ObjectInstanceNotKnown,
-             AttributeNotRecognized,
-             FederateInternalError) {}
+                          AttributeHandle /*theAttribute*/) {}
 
     //////////////////////////////
     // Time Management Services //
@@ -575,32 +420,22 @@ namespace rti1516
     // 8.3
     virtual
     void
-    timeRegulationEnabled(LogicalTime const & /*theFederateTime*/)
-      throw (InvalidLogicalTime,
-             NoRequestToEnableTimeRegulationWasPending,
-             FederateInternalError) {}
+    timeRegulationEnabled(LogicalTime const & /*theFederateTime*/) {}
 
     // 8.6
     virtual
     void
-    timeConstrainedEnabled(LogicalTime const & /*theFederateTime*/)
-      throw (InvalidLogicalTime,
-             NoRequestToEnableTimeConstrainedWasPending,
-             FederateInternalError) {}
+    timeConstrainedEnabled(LogicalTime const & /*theFederateTime*/) {}
 
     // 8.13
     virtual
     void
-    timeAdvanceGrant(LogicalTime const & /*theTime*/)
-      throw (InvalidLogicalTime,
-             JoinedFederateIsNotInTimeAdvancingState,
-             FederateInternalError) {}
+    timeAdvanceGrant(LogicalTime const & /*theTime*/) {}
 
     // 8.22
     virtual
     void
-    requestRetraction(MessageRetractionHandle /*theHandle*/)
-      throw (FederateInternalError) {}
+    requestRetraction(MessageRetractionHandle /*theHandle*/) {}
   };
 }
 

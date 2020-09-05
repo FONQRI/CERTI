@@ -8248,7 +8248,8 @@ M_Reserve_Object_Instance_Name_Failed::M_Reserve_Object_Instance_Name_Failed()
     this->type = Message::RESERVE_OBJECT_INSTANCE_NAME_FAILED;
 }
 
-Message* M_Factory::create(M_Type type) throw (NetworkError ,NetworkSignal) { 
+Message* M_Factory::create(M_Type type)
+{
     Message* msg = NULL;
 
     switch (type) {
@@ -8709,7 +8710,7 @@ Message* M_Factory::create(M_Type type) throw (NetworkError ,NetworkSignal) {
     return msg;
 } /* end of M_Factory::create */
 
-Message* M_Factory::receive(MStreamType stream) throw (NetworkError ,NetworkSignal) { 
+Message* M_Factory::receive(MStreamType stream) {
     // FIXME This is not thread safe
     static libhla::MessageBuffer msgBuffer;
     Message  msgGen;

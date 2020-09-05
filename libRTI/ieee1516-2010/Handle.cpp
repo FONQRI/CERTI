@@ -44,7 +44,7 @@ namespace rti1516e {
         _impl = new HandleKind##Implementation(encodedValue);                                                          \
     }                                                                                                                  \
                                                                                                                        \
-    HandleKind::~HandleKind() throw()                                                                                  \
+    HandleKind::~HandleKind() noexcept                                                                                 \
     {                                                                                                                  \
         delete _impl;                                                                                                  \
     }                                                                                                                  \
@@ -111,7 +111,7 @@ namespace rti1516e {
     {                                                                                                                  \
         return _impl->encodedLength();                                                                                 \
     }                                                                                                                  \
-    size_t HandleKind::encode(void* buffer, size_t bufferSize) const throw(CouldNotEncode)                             \
+    size_t HandleKind::encode(void* buffer, size_t bufferSize) const                                                   \
     {                                                                                                                  \
         return _impl->encode(buffer, bufferSize);                                                                      \
     }                                                                                                                  \

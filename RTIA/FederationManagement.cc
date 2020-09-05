@@ -702,14 +702,14 @@ void FederationManagement::federationRestoredStatus(bool status)
     delete req;
 }
 
-void FederationManagement::checkFederationSaving() throw(SaveInProgress)
+void FederationManagement::checkFederationSaving()
 {
     if (my_is_saving) {
         throw SaveInProgress("Federation is in saving state");
     }
 }
 
-void FederationManagement::checkFederationRestoring() throw(RestoreInProgress)
+void FederationManagement::checkFederationRestoring()
 {
     if (my_is_restoring) {
         throw RestoreInProgress("Federation is in restoring state");

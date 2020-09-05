@@ -89,7 +89,7 @@ unsigned long HandleImplementation::encodedLength() const
 {
     return sizeof(_value);
 }
-unsigned long HandleImplementation::encode(void* buffer, unsigned long bufferSize) const throw(CouldNotEncode)
+unsigned long HandleImplementation::encode(void* buffer, unsigned long bufferSize) const
 {
     if (bufferSize < sizeof(_value))
         throw CouldNotEncode(L"Not enough room in buffer to encode handle");
@@ -259,7 +259,6 @@ unsigned long MessageRetractionHandleImplementation::encodedLength() const
 }
 
 unsigned long MessageRetractionHandleImplementation::encode(void* buffer, unsigned long bufferSize) const
-    throw(CouldNotEncode)
 {
     if (bufferSize < (sizeof(_value) + sizeof(_serialNum)))
         throw CouldNotEncode(L"Not enough room in buffer to encode handle");

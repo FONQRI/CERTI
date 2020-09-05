@@ -86,7 +86,7 @@ RTIambPrivateRefs::~RTIambPrivateRefs()
 }
 
 // ----------------------------------------------------------------------------
-void RTIambPrivateRefs::leave(const char* msg) throw(RTI::RTIinternalError)
+void RTIambPrivateRefs::leave(const char* msg)
 {
     std::stringstream smsg;
     smsg << "RTI called leave because <" << msg << ">";
@@ -608,7 +608,7 @@ void RTIambPrivateRefs::processException(Message* msg)
         throw RTI::RTIinternalError(msg.str().c_str());                                                                \
     }
 
-void RTIambPrivateRefs::callFederateAmbassador(Message* msg) throw(RTI::RTIinternalError)
+void RTIambPrivateRefs::callFederateAmbassador(Message* msg)
 {
     switch (msg->getMessageType()) {
     case Message::SYNCHRONIZATION_POINT_REGISTRATION_SUCCEEDED:

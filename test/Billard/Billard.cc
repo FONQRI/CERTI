@@ -72,7 +72,7 @@ Billard::Billard(std::string federate_name)
 // ----------------------------------------------------------------------------
 /** Destructor
  */
-Billard::~Billard() throw(RTI::FederateInternalError)
+Billard::~Billard()
 {
 }
 
@@ -721,9 +721,7 @@ RTI::ObjectHandle Billard::registerBallInstance(const char* s)
  */
 void Billard::discoverObjectInstance(RTI::ObjectHandle theObject,
                                      RTI::ObjectClassHandle theObjectClass,
-                                     const char* /*theObjectName*/) throw(RTI::CouldNotDiscover,
-                                                                          RTI::ObjectClassNotKnown,
-                                                                          RTI::FederateInternalError)
+                                     const char* /*theObjectName*/)
 {
     if (theObjectClass != BilleClassID) {
         Debug(D, pdError) << "Object of Unknown Class discovered." << std::endl;
@@ -748,7 +746,7 @@ void Billard::discoverObjectInstance(RTI::ObjectHandle theObject,
 // ----------------------------------------------------------------------------
 /** Callback announce synchronization point
  */
-void Billard::announceSynchronizationPoint(const char* label, const char* /*tag*/) throw(RTI::FederateInternalError)
+void Billard::announceSynchronizationPoint(const char* label, const char* /*tag*/)
 {
     if (strcmp(label, "Init") == 0) {
         paused = true;
@@ -770,7 +768,7 @@ void Billard::announceSynchronizationPoint(const char* label, const char* /*tag*
 // ----------------------------------------------------------------------------
 /** Callback : federation synchronized
  */
-void Billard::federationSynchronized(const char* label) throw(RTI::FederateInternalError)
+void Billard::federationSynchronized(const char* label)
 {
     if (strcmp(label, "Init") == 0) {
         paused = false;
@@ -785,10 +783,7 @@ void Billard::receiveInteraction(RTI::InteractionClassHandle theInteraction,
                                  const RTI::ParameterHandleValuePairSet& theParameters,
                                  const RTI::FedTime& /*theTime*/,
                                  const char* /*theTag*/,
-                                 RTI::EventRetractionHandle /*theHandle*/) throw(RTI::InteractionClassNotKnown,
-                                                                                 RTI::InteractionParameterNotKnown,
-                                                                                 RTI::InvalidFederationTime,
-                                                                                 RTI::FederateInternalError)
+                                 RTI::EventRetractionHandle /*theHandle*/)
 {
     libhla::MessageBuffer buffer;
     RTI::ULong valueLength;
@@ -850,10 +845,7 @@ void Billard::reflectAttributeValues(RTI::ObjectHandle theObject,
                                      const RTI::AttributeHandleValuePairSet& theAttributes,
                                      const RTI::FedTime& /*theTime*/,
                                      const char* /*theTag*/,
-                                     RTI::EventRetractionHandle /*theHandle*/) throw(RTI::ObjectNotKnown,
-                                                                                     RTI::AttributeNotKnown,
-                                                                                     RTI::InvalidFederationTime,
-                                                                                     RTI::FederateInternalError)
+                                     RTI::EventRetractionHandle /*theHandle*/)
 {
     Debug(D, pdTrace) << "reflectAttributeValues with time" << std::endl;
 
@@ -913,9 +905,7 @@ void Billard::reflectAttributeValues(RTI::ObjectHandle theObject,
  */
 void Billard::reflectAttributeValues(RTI::ObjectHandle theObject,
                                      const RTI::AttributeHandleValuePairSet& theAttributes,
-                                     const char* /*theTag*/) throw(RTI::ObjectNotKnown,
-                                                                   RTI::AttributeNotKnown,
-                                                                   RTI::FederateInternalError)
+                                     const char* /*theTag*/)
 {
     Debug(D, pdTrace) << "reflectAttributeValues without time" << std::endl;
 
@@ -974,9 +964,7 @@ void Billard::reflectAttributeValues(RTI::ObjectHandle theObject,
 void Billard::removeObjectInstance(RTI::ObjectHandle theObject,
                                    const RTI::FedTime&,
                                    const char*,
-                                   RTI::EventRetractionHandle) throw(RTI::ObjectNotKnown,
-                                                                     RTI::InvalidFederationTime,
-                                                                     RTI::FederateInternalError)
+                                   RTI::EventRetractionHandle)
 {
     vector<Ball>::iterator it;
 
@@ -992,9 +980,7 @@ void Billard::removeObjectInstance(RTI::ObjectHandle theObject,
 // ----------------------------------------------------------------------------
 /** Callback : time advance granted
  */
-void Billard::timeAdvanceGrant(const RTI::FedTime& theTime) throw(RTI::InvalidFederationTime,
-                                                                  RTI::TimeAdvanceWasNotInProgress,
-                                                                  RTI::FederateInternalError)
+void Billard::timeAdvanceGrant(const RTI::FedTime& theTime)
 {
     granted = true;
     localTime = theTime;

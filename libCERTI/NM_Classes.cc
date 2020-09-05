@@ -5549,7 +5549,8 @@ std::ostream& operator<<(std::ostream& os, const New_NetworkMessage& msg)
     return os;
 }
 
-NetworkMessage* NM_Factory::create(NM_Type type) throw (NetworkError ,NetworkSignal) { 
+NetworkMessage* NM_Factory::create(NM_Type type)
+{
     NetworkMessage* msg = NULL;
 
     switch (type) {
@@ -5872,7 +5873,8 @@ NetworkMessage* NM_Factory::create(NM_Type type) throw (NetworkError ,NetworkSig
     return msg;
 } /* end of NM_Factory::create */
 
-NetworkMessage* NM_Factory::receive(NMStreamType stream) throw (NetworkError ,NetworkSignal) { 
+NetworkMessage* NM_Factory::receive(NMStreamType stream)
+{
     // FIXME This is not thread safe
     static libhla::MessageBuffer msgBuffer;
     NetworkMessage  msgGen;

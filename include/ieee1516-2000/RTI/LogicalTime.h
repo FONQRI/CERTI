@@ -49,43 +49,35 @@ namespace rti1516
 
     virtual
     LogicalTime &
-    operator=(LogicalTime const & value)
-      throw (InvalidLogicalTime) = 0;
+    operator=(LogicalTime const & value) = 0;
 
     virtual
     LogicalTime &
-    operator+=(LogicalTimeInterval const & addend)
-      throw (IllegalTimeArithmetic, InvalidLogicalTimeInterval) = 0;
+    operator+=(LogicalTimeInterval const & addend) = 0;
 
     virtual
     LogicalTime &
-    operator-=(LogicalTimeInterval const & subtrahend)
-      throw (IllegalTimeArithmetic, InvalidLogicalTimeInterval) = 0;
+    operator-=(LogicalTimeInterval const & subtrahend) = 0;
 
     virtual
     bool
-    operator>(LogicalTime const & value) const
-      throw (InvalidLogicalTime) = 0;
+    operator>(LogicalTime const & value) const = 0;
 
     virtual
     bool
-    operator<(LogicalTime const & value) const
-      throw (InvalidLogicalTime) = 0;
+    operator<(LogicalTime const & value) const = 0;
 
     virtual
     bool
-    operator==(LogicalTime const & value) const
-      throw (InvalidLogicalTime) = 0;
+    operator==(LogicalTime const & value) const = 0;
 
     virtual
     bool
-    operator>=(LogicalTime const & value) const
-      throw (InvalidLogicalTime) = 0;
+    operator>=(LogicalTime const & value) const = 0;
 
     virtual
     bool
-    operator<=(LogicalTime const & value) const
-      throw (InvalidLogicalTime) = 0;
+    operator<=(LogicalTime const & value) const = 0;
     
     // Generates an encoded value that can be used to send
     // LogicalTimes to other federates in updates or interactions
@@ -93,18 +85,13 @@ namespace rti1516
 
     // Alternate encode for directly filling a buffer
     virtual unsigned long encodedLength() const = 0;
-    virtual unsigned long encode(void* buffer, unsigned long bufferSize) const 
-       throw (CouldNotEncode) = 0;
+    virtual unsigned long encode(void* buffer, unsigned long bufferSize) const = 0;
    
     // Decode encodedLogicalTime into self
-    virtual void decode(VariableLengthData const & encodedLogicalTime)
-      throw (InternalError,
-             CouldNotDecode) = 0;
+    virtual void decode(VariableLengthData const & encodedLogicalTime) = 0;
 
     // Alternate decode that reads directly from a buffer
-    virtual void decode(void* buffer, unsigned long bufferSize)
-      throw (InternalError,
-             CouldNotDecode) = 0;
+    virtual void decode(void* buffer, unsigned long bufferSize) = 0;
 
     virtual std::wstring toString() const = 0;
 

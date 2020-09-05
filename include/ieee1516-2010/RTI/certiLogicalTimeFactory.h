@@ -55,19 +55,17 @@ namespace rti1516e
   public:
     virtual
     ~LogicalTimeFactory()
-      throw () { };
+      noexcept { };
     
     // Returns a LogicalTime with a value of "initial"
     virtual
     std::unique_ptr< LogicalTime >
-    makeLogicalTime()
-      throw (InternalError) = 0;
+    makeLogicalTime() = 0;
     
     // Returns a LogicalTimeInterval with a value of "zero"
     virtual 
     std::unique_ptr< LogicalTimeInterval >
-    makeLogicalTimeInterval() 
-      throw (InternalError) = 0;
+    makeLogicalTimeInterval() = 0;
   };
 }
 

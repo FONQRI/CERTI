@@ -64,8 +64,8 @@ public:
     ConnectionState getConnectionState() const;
     void setConnectionState(const ConnectionState state);
 
-    void checkFederationSaving(void) throw(SaveInProgress);
-    void checkFederationRestoring(void) throw(RestoreInProgress);
+    void checkFederationSaving(void);
+    void checkFederationRestoring(void);
     
     std::string getRtiVersion() const;
     void setRtiVersion(const std::string& version);

@@ -38,8 +38,8 @@ public:
     void processException(Message *);
     void executeService(Message *req, Message *rep);
     void sendTickRequestStop();
-    void callFederateAmbassador(Message *msg) throw (rti1516::RTIinternalError);
-    void leave(const char *msg) throw (rti1516::RTIinternalError);
+    void callFederateAmbassador(Message *msg);
+    void leave(const char *msg);
 
 #ifdef _WIN32
 	  HANDLE	handle_RTIA;

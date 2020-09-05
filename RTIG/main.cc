@@ -53,7 +53,7 @@ extern "C" void SignalHandler(int sig)
 
 // ----------------------------------------------------------------------------
 //! NewHandler
-void NewHandler() throw(MemoryExhausted)
+void NewHandler()
 {
     throw MemoryExhausted("main RTIG");
 }

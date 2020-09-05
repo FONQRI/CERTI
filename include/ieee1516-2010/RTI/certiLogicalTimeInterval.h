@@ -48,7 +48,7 @@ namespace rti1516e
   public:
     virtual
     ~LogicalTimeInterval()
-      throw () { };
+      noexcept { };
 
     virtual
     void
@@ -68,50 +68,41 @@ namespace rti1516e
 
     virtual
     LogicalTimeInterval &
-    operator=(LogicalTimeInterval const & value)
-      throw (InvalidLogicalTimeInterval) = 0;
+    operator=(LogicalTimeInterval const & value) = 0;
 
     // Set self to the difference between two LogicalTimes
     virtual
     void
     setToDifference(LogicalTime const & minuend,
-      LogicalTime const& subtrahend)
-      throw (InvalidLogicalTime) = 0;
+      LogicalTime const& subtrahend) = 0;
 
     virtual
     LogicalTimeInterval &
-    operator+=(LogicalTimeInterval const & addend)
-      throw (InvalidLogicalTimeInterval) = 0;
+    operator+=(LogicalTimeInterval const & addend) = 0;
 
     virtual
     LogicalTimeInterval &
-    operator-=(LogicalTimeInterval const & subtrahend)
-      throw (InvalidLogicalTimeInterval) = 0;
+    operator-=(LogicalTimeInterval const & subtrahend) = 0;
     
     virtual
     bool
-    operator>(LogicalTimeInterval const & value) const
-      throw (InvalidLogicalTimeInterval) = 0;
+    operator>(LogicalTimeInterval const & value) const = 0;
 
     virtual
     bool
-    operator<(LogicalTimeInterval const & value) const
-      throw (InvalidLogicalTimeInterval) = 0;
+    operator<(LogicalTimeInterval const & value) const = 0;
 
     virtual
     bool
-    operator==(LogicalTimeInterval const & value) const
-      throw (InvalidLogicalTimeInterval) = 0;
+    operator==(LogicalTimeInterval const & value) const = 0;
 
     virtual
     bool
-    operator>=(LogicalTimeInterval const & value) const
-      throw (InvalidLogicalTimeInterval) = 0;
+    operator>=(LogicalTimeInterval const & value) const = 0;
 
     virtual
     bool
-    operator<=(LogicalTimeInterval const & value) const
-      throw (InvalidLogicalTimeInterval) = 0;
+    operator<=(LogicalTimeInterval const & value) const = 0;
     
     // Generates an encoded value that can be used to send
     // LogicalTimeIntervals to other federates in updates or interactions
@@ -119,18 +110,13 @@ namespace rti1516e
 
     // Alternate encode for directly filling a buffer
     virtual size_t encodedLength() const = 0;
-    virtual size_t encode(void* buffer, size_t bufferSize) const 
-       throw (CouldNotEncode) = 0;
+    virtual size_t encode(void* buffer, size_t bufferSize) const = 0;
 
     // Decode encodedValue into self
-    virtual void decode(VariableLengthData const & encodedValue)
-      throw (InternalError,
-             CouldNotDecode) = 0;
+    virtual void decode(VariableLengthData const & encodedValue) = 0;
 
     // Alternate decode that reads directly from a buffer
-    virtual void decode(void* buffer, size_t bufferSize)
-      throw (InternalError,
-             CouldNotDecode) = 0;
+    virtual void decode(void* buffer, size_t bufferSize) = 0;
 
     virtual std::wstring toString() const = 0;
 

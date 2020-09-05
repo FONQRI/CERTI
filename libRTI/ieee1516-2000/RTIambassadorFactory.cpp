@@ -43,7 +43,7 @@ rti1516::RTIambassadorFactory::RTIambassadorFactory()
 {
 }
 
-rti1516::RTIambassadorFactory::~RTIambassadorFactory() throw()
+rti1516::RTIambassadorFactory::~RTIambassadorFactory() noexcept
 {
 }
 
@@ -53,7 +53,7 @@ static PrettyDebug G1516("GENDOC1516", __FILE__);
 }
 
 std::auto_ptr<rti1516::RTIambassador> rti1516::RTIambassadorFactory::createRTIambassador(
-    std::vector<std::wstring>& /*args*/) throw(BadInitializationParameter, RTIinternalError)
+    std::vector<std::wstring>& /*args*/)
 {
     certi::RTI1516ambassador* p_ambassador(new certi::RTI1516ambassador());
 

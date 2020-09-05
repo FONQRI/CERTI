@@ -39,26 +39,25 @@ public:
 
     const std::string& getRoutingSpaceName(SpaceHandle) const;
 
-    DimensionHandle getDimensionHandle(const std::string&, SpaceHandle) const throw(SpaceNotDefined, NameNotFound);
+    DimensionHandle getDimensionHandle(const std::string&, SpaceHandle) const;
 
-    const std::string& getDimensionName(DimensionHandle, SpaceHandle) const throw(SpaceNotDefined, DimensionNotDefined);
+    const std::string& getDimensionName(DimensionHandle, SpaceHandle) const;
 
-    SpaceHandle getAttributeSpace(AttributeHandle, ObjectClassHandle) const
-        throw(ObjectClassNotDefined, AttributeNotDefined);
+    SpaceHandle getAttributeSpace(AttributeHandle, ObjectClassHandle) const;
 
-    SpaceHandle getInteractionSpace(InteractionClassHandle) const throw(InteractionClassNotDefined);
+    SpaceHandle getInteractionSpace(InteractionClassHandle) const;
 
-    long createRegion(SpaceHandle, unsigned long, Exception::Type&) throw(SpaceNotDefined);
+    long createRegion(SpaceHandle, unsigned long, Exception::Type&);
 
     void modifyRegion(RegionHandle, const std::vector<Extent>&, Exception::Type&);
 
-    void deleteRegion(long, Exception::Type&) throw(RegionNotKnown, RegionInUse);
+    void deleteRegion(long, Exception::Type&);
 
     void associateRegion(ObjectHandle,
                          RegionHandle,
                          const std::vector<AttributeHandle>&,
                          uint32_t,
-                         Exception::Type&) throw(RegionNotKnown);
+                         Exception::Type&);
 
     ObjectHandle registerObject(ObjectClassHandle,
                                 const std::string&,
@@ -67,21 +66,19 @@ public:
                                 const std::vector<RegionHandle>,
                                 Exception::Type&);
 
-    void unassociateRegion(ObjectHandle, RegionHandle, Exception::Type& e) throw(ObjectNotKnown,
-                                                                                 InvalidRegionContext,
-                                                                                 RegionNotKnown);
+    void unassociateRegion(ObjectHandle, RegionHandle, Exception::Type& e);
 
     void subscribe(ObjectClassHandle,
                    RegionHandle,
                    const std::vector<AttributeHandle>&,
                    uint32_t,
-                   Exception::Type&) throw(RegionNotKnown);
+                   Exception::Type&);
 
-    void unsubscribeAttributes(ObjectClassHandle, RegionHandle, Exception::Type&) throw(RegionNotKnown);
+    void unsubscribeAttributes(ObjectClassHandle, RegionHandle, Exception::Type&);
 
-    void subscribeInteraction(InteractionClassHandle, RegionHandle, Exception::Type&) throw(RegionNotKnown);
+    void subscribeInteraction(InteractionClassHandle, RegionHandle, Exception::Type&);
 
-    void unsubscribeInteraction(InteractionClassHandle, RegionHandle, Exception::Type&) throw(RegionNotKnown);
+    void unsubscribeInteraction(InteractionClassHandle, RegionHandle, Exception::Type&);
 
 private:
     RootObject* rootObject;

@@ -110,7 +110,7 @@ namespace rti1516 {
     {                                                                                                                  \
         return _impl->encodedLength();                                                                                 \
     }                                                                                                                  \
-    unsigned long HandleKind::encode(void* buffer, unsigned long bufferSize) const throw(CouldNotEncode)               \
+    unsigned long HandleKind::encode(void* buffer, unsigned long bufferSize) const                                     \
     {                                                                                                                  \
         return _impl->encode(buffer, bufferSize);                                                                      \
     }                                                                                                                  \

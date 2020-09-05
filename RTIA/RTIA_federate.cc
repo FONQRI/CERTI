@@ -44,7 +44,7 @@ static PrettyDebug G("GENDOC", __FILE__);
 
 // ----------------------------------------------------------------------------
 //! Verify that federate is not in saving or restoring state.
-void RTIA::saveAndRestoreStatus(Message::Type type) throw(SaveInProgress, RestoreInProgress)
+void RTIA::saveAndRestoreStatus(Message::Type type)
 {
     Debug(G, pdGendoc) << "enter RTIA::saveAndRestoreStatus" << std::endl;
     //D.Mes(pdMessage, 'N', type);

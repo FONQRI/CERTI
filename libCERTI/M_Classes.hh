@@ -3417,8 +3417,8 @@ public:
 
 class CERTI_EXPORT M_Factory {
     public:
-        static Message* create(M_Type type) throw (NetworkError ,NetworkSignal); 
-        static Message* receive(MStreamType stream) throw (NetworkError ,NetworkSignal); 
+        static Message* create(M_Type type);
+        static Message* receive(MStreamType stream);
     protected:
     private:
 };

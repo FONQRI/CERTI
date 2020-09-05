@@ -120,7 +120,7 @@ rti1516::AttributeHandleSet* getAHSFromRequest(T* request)
     return result;
 }
 
-std::unique_ptr<rti1516::LogicalTime> getLogicalTime() throw(rti1516::RTIinternalError)
+std::unique_ptr<rti1516::LogicalTime> getLogicalTime()
 {
     std::unique_ptr<rti1516::LogicalTimeFactory> timeFactory
         = rti1516::LogicalTimeFactoryFactory::makeLogicalTimeFactory(L"");
@@ -153,7 +153,7 @@ RTI1516ambPrivateRefs::~RTI1516ambPrivateRefs()
 }
 
 // ----------------------------------------------------------------------------
-void RTI1516ambPrivateRefs::leave(const char* msg) throw(rti1516::RTIinternalError)
+void RTI1516ambPrivateRefs::leave(const char* msg)
 {
     std::wstringstream smsg;
     smsg << "RTI called leave because <" << msg << ">";
@@ -713,7 +713,7 @@ void RTI1516ambPrivateRefs::processException(Message* msg)
         throw rti1516::RTIinternalError(msg.str());                                                                    \
     }
 
-void RTI1516ambPrivateRefs::callFederateAmbassador(Message* msg) throw(rti1516::RTIinternalError)
+void RTI1516ambPrivateRefs::callFederateAmbassador(Message* msg)
 {
     switch (msg->getMessageType()) {
     case Message::SYNCHRONIZATION_POINT_REGISTRATION_SUCCEEDED:

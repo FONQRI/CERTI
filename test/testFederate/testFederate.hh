@@ -67,11 +67,11 @@ public:
     };
 
 #ifdef HLA13
-    virtual ~testFederate() throw(RTI::FederateInternalError)
+    virtual ~testFederate()
 #elif IEEE1516_2000
-    virtual ~testFederate() throw()
+    virtual ~testFederate() noexcept
 #elif IEEE1516_2010
-    virtual ~testFederate() throw()
+    virtual ~testFederate() noexcept
 #endif
     {
         if (NULL != rtiAmb)

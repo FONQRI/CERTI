@@ -35,14 +35,14 @@
 #include "RTI1516fedTime.h"
 
 rti1516e::LogicalTime& rti1516e::LogicalTime::
-operator=(rti1516e::LogicalTime const& /*value*/) throw(rti1516e::InvalidLogicalTime)
+operator=(rti1516e::LogicalTime const& /*value*/)
 {
     throw std::wstring(L"Operator should be overloaded");
     //throw rti1516e::InvalidLogicalTime(L"Operator should be overloaded");
 }
 
 rti1516e::LogicalTimeInterval& rti1516e::LogicalTimeInterval::
-operator=(rti1516e::LogicalTimeInterval const& /*value*/) throw(rti1516e::InvalidLogicalTimeInterval)
+operator=(rti1516e::LogicalTimeInterval const& /*value*/)
 {
     throw std::wstring(L"Operator should be overloaded");
     //throw rti1516e::InvalidLogicalTimeInterval(L"Operator should be overloaded");
@@ -65,7 +65,7 @@ RTI1516fedTime::RTI1516fedTime(const RTI1516fedTime& other)
 {
 }
 
-RTI1516fedTime::~RTI1516fedTime() throw()
+RTI1516fedTime::~RTI1516fedTime() noexcept
 {
 }
 
@@ -95,7 +95,7 @@ bool RTI1516fedTime::isFinal() const
     return (_fedTime == _zero);
 }
 
-rti1516e::LogicalTime& RTI1516fedTime::operator=(rti1516e::LogicalTime const& value) throw(rti1516e::InvalidLogicalTime)
+rti1516e::LogicalTime& RTI1516fedTime::operator=(rti1516e::LogicalTime const& value)
 {
     if (this != &value) {
         const RTI1516fedTime* other = dynamic_cast<const RTI1516fedTime*>(&value);
@@ -130,8 +130,7 @@ RTI1516fedTime& RTI1516fedTime::operator=(RTI1516fedTime const& other) throw()
 }
 
 rti1516e::LogicalTime& RTI1516fedTime::
-operator+=(rti1516e::LogicalTimeInterval const& value) throw(rti1516e::IllegalTimeArithmetic,
-                                                             rti1516e::InvalidLogicalTimeInterval)
+operator+=(rti1516e::LogicalTimeInterval const& value)
 {
     const RTI1516fedTimeInterval* other = dynamic_cast<const RTI1516fedTimeInterval*>(&value);
     if (other == NULL) {
@@ -149,8 +148,7 @@ operator+=(rti1516e::LogicalTimeInterval const& value) throw(rti1516e::IllegalTi
 }
 
 rti1516e::LogicalTime& RTI1516fedTime::
-operator-=(rti1516e::LogicalTimeInterval const& value) throw(rti1516e::IllegalTimeArithmetic,
-                                                             rti1516e::InvalidLogicalTimeInterval)
+operator-=(rti1516e::LogicalTimeInterval const& value)
 {
     const RTI1516fedTimeInterval* other = dynamic_cast<const RTI1516fedTimeInterval*>(&value);
     if (other == NULL) {
@@ -167,7 +165,7 @@ operator-=(rti1516e::LogicalTimeInterval const& value) throw(rti1516e::IllegalTi
     return *this;
 }
 
-bool RTI1516fedTime::operator>(rti1516e::LogicalTime const& value) const throw(rti1516e::InvalidLogicalTime)
+bool RTI1516fedTime::operator>(rti1516e::LogicalTime const& value) const
 {
     const RTI1516fedTime* other = dynamic_cast<const RTI1516fedTime*>(&value);
     if (other == NULL) {
@@ -183,7 +181,7 @@ bool RTI1516fedTime::operator>(rti1516e::LogicalTime const& value) const throw(r
     return false;
 }
 
-bool RTI1516fedTime::operator<(rti1516e::LogicalTime const& value) const throw(rti1516e::InvalidLogicalTime)
+bool RTI1516fedTime::operator<(rti1516e::LogicalTime const& value) const
 {
     const RTI1516fedTime* other = dynamic_cast<const RTI1516fedTime*>(&value);
     if (other == NULL) {
@@ -199,7 +197,7 @@ bool RTI1516fedTime::operator<(rti1516e::LogicalTime const& value) const throw(r
     return false;
 }
 
-bool RTI1516fedTime::operator==(rti1516e::LogicalTime const& value) const throw(rti1516e::InvalidLogicalTime)
+bool RTI1516fedTime::operator==(rti1516e::LogicalTime const& value) const
 {
     const RTI1516fedTime* other = dynamic_cast<const RTI1516fedTime*>(&value);
     if (other == NULL) {
@@ -216,7 +214,7 @@ bool RTI1516fedTime::operator==(rti1516e::LogicalTime const& value) const throw(
     return false;
 }
 
-bool RTI1516fedTime::operator>=(rti1516e::LogicalTime const& value) const throw(rti1516e::InvalidLogicalTime)
+bool RTI1516fedTime::operator>=(rti1516e::LogicalTime const& value) const
 {
     const RTI1516fedTime* other = dynamic_cast<const RTI1516fedTime*>(&value);
     if (other == NULL) {
@@ -232,7 +230,7 @@ bool RTI1516fedTime::operator>=(rti1516e::LogicalTime const& value) const throw(
     return false;
 }
 
-bool RTI1516fedTime::operator<=(rti1516e::LogicalTime const& value) const throw(rti1516e::InvalidLogicalTime)
+bool RTI1516fedTime::operator<=(rti1516e::LogicalTime const& value) const
 {
     const RTI1516fedTime* other = dynamic_cast<const RTI1516fedTime*>(&value);
     if (other == NULL) {
@@ -269,7 +267,7 @@ size_t RTI1516fedTime::encodedLength() const
     return sizeof(double);
 }
 
-size_t RTI1516fedTime::encode(void* buffer, size_t bufferSize) const throw(rti1516e::CouldNotEncode)
+size_t RTI1516fedTime::encode(void* buffer, size_t bufferSize) const
 {
     if (bufferSize >= sizeof(double)) {
 #ifdef HOST_IS_BIG_ENDIAN
@@ -293,8 +291,7 @@ size_t RTI1516fedTime::encode(void* buffer, size_t bufferSize) const throw(rti15
 
 // Decode encodedLogicalTime into self
 
-void RTI1516fedTime::decode(rti1516e::VariableLengthData const& encodedLogicalTime) throw(rti1516e::InternalError,
-                                                                                          rti1516e::CouldNotDecode)
+void RTI1516fedTime::decode(rti1516e::VariableLengthData const& encodedLogicalTime)
 {
     union ud {
         double dv;
@@ -310,8 +307,7 @@ void RTI1516fedTime::decode(rti1516e::VariableLengthData const& encodedLogicalTi
 
 // Alternate decode that reads directly from a buffer
 
-void RTI1516fedTime::decode(void* buffer, size_t bufferSize) throw(rti1516e::InternalError,
-                                                                          rti1516e::CouldNotDecode)
+void RTI1516fedTime::decode(void* buffer, size_t bufferSize)
 {
     if (bufferSize >= sizeof(double)) {
         union ud {
@@ -393,7 +389,7 @@ bool RTI1516fedTimeInterval::isEpsilon() const
 }
 
 rti1516e::LogicalTimeInterval& RTI1516fedTimeInterval::
-operator=(rti1516e::LogicalTimeInterval const& value) throw(rti1516e::InvalidLogicalTimeInterval)
+operator=(rti1516e::LogicalTimeInterval const& value)
 {
     if (this != &value) {
         const RTI1516fedTimeInterval* other = dynamic_cast<const RTI1516fedTimeInterval*>(&value);
@@ -429,7 +425,7 @@ RTI1516fedTimeInterval& RTI1516fedTimeInterval::operator=(RTI1516fedTimeInterval
 // Set self to the difference between two LogicalTimes
 
 void RTI1516fedTimeInterval::setToDifference(
-    rti1516e::LogicalTime const& minuend, rti1516e::LogicalTime const& subtrahend) throw(rti1516e::InvalidLogicalTime)
+    rti1516e::LogicalTime const& minuend, rti1516e::LogicalTime const& subtrahend)
 {
     const RTI1516fedTime* val1 = dynamic_cast<const RTI1516fedTime*>(&minuend);
     const RTI1516fedTime* val2 = dynamic_cast<const RTI1516fedTime*>(&subtrahend);
@@ -469,7 +465,7 @@ void RTI1516fedTimeInterval::setToDifference(
 } /* end of RTI1516fedTimeInterval::setToDifference */
 
 rti1516e::LogicalTimeInterval& RTI1516fedTimeInterval::
-operator+=(rti1516e::LogicalTimeInterval const& value) throw(rti1516e::InvalidLogicalTimeInterval)
+operator+=(rti1516e::LogicalTimeInterval const& value)
 {
     const RTI1516fedTimeInterval* other = dynamic_cast<const RTI1516fedTimeInterval*>(&value);
     if (other == NULL) {
@@ -486,7 +482,7 @@ operator+=(rti1516e::LogicalTimeInterval const& value) throw(rti1516e::InvalidLo
 }
 
 rti1516e::LogicalTimeInterval& RTI1516fedTimeInterval::
-operator-=(rti1516e::LogicalTimeInterval const& value) throw(rti1516e::InvalidLogicalTimeInterval)
+operator-=(rti1516e::LogicalTimeInterval const& value)
 {
     const RTI1516fedTimeInterval* other = dynamic_cast<const RTI1516fedTimeInterval*>(&value);
     if (other == NULL) {
@@ -503,7 +499,6 @@ operator-=(rti1516e::LogicalTimeInterval const& value) throw(rti1516e::InvalidLo
 }
 
 bool RTI1516fedTimeInterval::operator>(rti1516e::LogicalTimeInterval const& value) const
-    throw(rti1516e::InvalidLogicalTimeInterval)
 {
     const RTI1516fedTimeInterval* other = dynamic_cast<const RTI1516fedTimeInterval*>(&value);
     if (other == NULL) {
@@ -520,7 +515,6 @@ bool RTI1516fedTimeInterval::operator>(rti1516e::LogicalTimeInterval const& valu
 } /* end of RTI1516fedTimeInterval::operator> */
 
 bool RTI1516fedTimeInterval::operator<(rti1516e::LogicalTimeInterval const& value) const
-    throw(rti1516e::InvalidLogicalTimeInterval)
 {
     const RTI1516fedTimeInterval* other = dynamic_cast<const RTI1516fedTimeInterval*>(&value);
     if (other == NULL) {
@@ -537,7 +531,6 @@ bool RTI1516fedTimeInterval::operator<(rti1516e::LogicalTimeInterval const& valu
 }
 
 bool RTI1516fedTimeInterval::operator==(rti1516e::LogicalTimeInterval const& value) const
-    throw(rti1516e::InvalidLogicalTimeInterval)
 {
     const RTI1516fedTimeInterval* other = dynamic_cast<const RTI1516fedTimeInterval*>(&value);
     if (other == NULL) {
@@ -554,7 +547,6 @@ bool RTI1516fedTimeInterval::operator==(rti1516e::LogicalTimeInterval const& val
 }
 
 bool RTI1516fedTimeInterval::operator>=(rti1516e::LogicalTimeInterval const& value) const
-    throw(rti1516e::InvalidLogicalTimeInterval)
 {
     const RTI1516fedTimeInterval* other = dynamic_cast<const RTI1516fedTimeInterval*>(&value);
     if (other == NULL) {
@@ -571,7 +563,6 @@ bool RTI1516fedTimeInterval::operator>=(rti1516e::LogicalTimeInterval const& val
 }
 
 bool RTI1516fedTimeInterval::operator<=(rti1516e::LogicalTimeInterval const& value) const
-    throw(rti1516e::InvalidLogicalTimeInterval)
 {
     const RTI1516fedTimeInterval* other = dynamic_cast<const RTI1516fedTimeInterval*>(&value);
     if (other == NULL) {
@@ -609,7 +600,6 @@ size_t RTI1516fedTimeInterval::encodedLength() const
 }
 
 size_t RTI1516fedTimeInterval::encode(void* buffer, size_t bufferSize) const
-    throw(rti1516e::CouldNotEncode)
 {
     if (bufferSize >= sizeof(double)) {
 #ifdef HOST_IS_BIG_ENDIAN
@@ -633,8 +623,7 @@ size_t RTI1516fedTimeInterval::encode(void* buffer, size_t bufferSize) const
 
 // Decode encodedValue into self
 
-void RTI1516fedTimeInterval::decode(rti1516e::VariableLengthData const& encodedValue) throw(rti1516e::InternalError,
-                                                                                            rti1516e::CouldNotDecode)
+void RTI1516fedTimeInterval::decode(rti1516e::VariableLengthData const& encodedValue)
 {
     union ud {
         double dv;
@@ -650,8 +639,7 @@ void RTI1516fedTimeInterval::decode(rti1516e::VariableLengthData const& encodedV
 
 // Alternate decode that reads directly from a buffer
 
-void RTI1516fedTimeInterval::decode(void* buffer, size_t bufferSize) throw(rti1516e::InternalError,
-                                                                                  rti1516e::CouldNotDecode)
+void RTI1516fedTimeInterval::decode(void* buffer, size_t bufferSize)
 {
     if (bufferSize >= sizeof(double)) {
         union ud {
@@ -691,17 +679,17 @@ std::wstring RTI1516fedTimeInterval::implementationName() const
 //---------------- RTI1516fedTimeFactory ------------------//
 /////////////////////////////////////////////////////////////
 
-RTI1516fedTimeFactory::RTI1516fedTimeFactory() throw()
+RTI1516fedTimeFactory::RTI1516fedTimeFactory() noexcept
 {
 }
 
-RTI1516fedTimeFactory::~RTI1516fedTimeFactory() throw()
+RTI1516fedTimeFactory::~RTI1516fedTimeFactory() noexcept
 {
 }
 
 // Returns a LogicalTime with a value of "initial"
 
-std::unique_ptr<rti1516e::LogicalTime> RTI1516fedTimeFactory::makeLogicalTime() throw(rti1516e::InternalError)
+std::unique_ptr<rti1516e::LogicalTime> RTI1516fedTimeFactory::makeLogicalTime()
 {
     RTI1516fedTime* fedTime = new RTI1516fedTime(0);
 
@@ -709,7 +697,7 @@ std::unique_ptr<rti1516e::LogicalTime> RTI1516fedTimeFactory::makeLogicalTime() 
 }
 
 std::unique_ptr<rti1516e::LogicalTime>
-RTI1516fedTimeFactory::makeLogicalTime(double timeVal) throw(rti1516e::InternalError)
+RTI1516fedTimeFactory::makeLogicalTime(double timeVal)
 {
     RTI1516fedTime* fedTime = new RTI1516fedTime(timeVal);
 
@@ -719,7 +707,7 @@ RTI1516fedTimeFactory::makeLogicalTime(double timeVal) throw(rti1516e::InternalE
 // Returns a LogicalTimeInterval with a value of "zero"
 
 std::unique_ptr<rti1516e::LogicalTimeInterval>
-RTI1516fedTimeFactory::makeLogicalTimeInterval() throw(rti1516e::InternalError)
+RTI1516fedTimeFactory::makeLogicalTimeInterval()
 {
     RTI1516fedTimeInterval* fedTimeInterval = new RTI1516fedTimeInterval(0);
 
@@ -727,7 +715,7 @@ RTI1516fedTimeFactory::makeLogicalTimeInterval() throw(rti1516e::InternalError)
 }
 
 std::unique_ptr<rti1516e::LogicalTimeInterval>
-RTI1516fedTimeFactory::makeLogicalTimeInterval(double timeInterval) throw(rti1516e::InternalError)
+RTI1516fedTimeFactory::makeLogicalTimeInterval(double timeInterval)
 {
     RTI1516fedTimeInterval* fedTimeInterval = new RTI1516fedTimeInterval(timeInterval);
 

@@ -52,46 +52,28 @@ namespace rti1516e
       // Operators
 
       virtual LogicalTime & operator= (
-         LogicalTime const & value)
-         throw (
-            InvalidLogicalTime) = 0;
+         LogicalTime const & value) = 0;
 
       virtual LogicalTime & operator+= (
-         LogicalTimeInterval const & addend)
-         throw (
-            IllegalTimeArithmetic,
-            InvalidLogicalTimeInterval) = 0;
+         LogicalTimeInterval const & addend) = 0;
 
       virtual LogicalTime & operator-= (
-         LogicalTimeInterval const & subtrahend)
-         throw (
-            IllegalTimeArithmetic,
-            InvalidLogicalTimeInterval) = 0;
+         LogicalTimeInterval const & subtrahend) = 0;
 
       virtual bool operator> (
-         LogicalTime const & value) const
-         throw (
-            InvalidLogicalTime) = 0;
+         LogicalTime const & value) const = 0;
 
       virtual bool operator< (
-         LogicalTime const & value) const
-         throw (
-            InvalidLogicalTime) = 0;
+         LogicalTime const & value) const = 0;
 
       virtual bool operator== (
-         LogicalTime const & value) const
-         throw (
-            InvalidLogicalTime) = 0;
+         LogicalTime const & value) const = 0;
 
       virtual bool operator>= (
-         LogicalTime const & value) const
-         throw (
-            InvalidLogicalTime) = 0;
+         LogicalTime const & value) const = 0;
 
       virtual bool operator<= (
-         LogicalTime const & value) const
-         throw (
-            InvalidLogicalTime) = 0;
+         LogicalTime const & value) const = 0;
 
       // Generates an encoded value that can be used to send
       // LogicalTimes to other federates in updates or interactions
@@ -100,27 +82,19 @@ namespace rti1516e
       // Alternate encode for directly filling a buffer
       virtual size_t encode (
          void* buffer,
-         size_t bufferSize) const
-         throw (
-            CouldNotEncode) = 0;
+         size_t bufferSize) const = 0;
 
       // The length of the encoded data
       virtual size_t encodedLength () const = 0;
 
       // Decode encodedLogicalTime into self
       virtual void decode (
-         VariableLengthData const & encodedLogicalTime)
-         throw (
-            InternalError,
-            CouldNotDecode) = 0;
+         VariableLengthData const & encodedLogicalTime) = 0;
 
       // Alternate decode that reads directly from a buffer
       virtual void decode (
          void* buffer,
-         size_t bufferSize)
-         throw (
-            InternalError,
-            CouldNotDecode) = 0;
+         size_t bufferSize) = 0;
 
       // Diagnostic string representation of time
       virtual std::wstring toString () const = 0;
